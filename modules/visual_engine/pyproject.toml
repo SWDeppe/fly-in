@@ -1,0 +1,42 @@
+[project]
+name = "visual_engine"
+version = "0.1.0"
+requires-python = ">=3.10.12"
+dependencies = [
+    "mlx",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+visual_engine = ["**/*"]
+
+
+
+#
+#[project]
+#name = "graphics"
+#version = "0.1.0"
+#requires-python = ">=3.10"
+#dependencies = ["Pillow>=10.3.0",
+#		"types-Pillow",
+#		"common",
+#		"mlx",
+#		"types-mlx",
+#
+#]
+#
+#[build-system]
+#requires = ["setuptools", "wheel"]
+#build-backend = "setuptools.build_meta"
+#
+#[tool.setuptools]
+#packages = ["graphics"]
+#
+#[tool.setuptools.package-data]
+#graphics = ["game_logic/*", "game_logic/**/*", "assets/*", "engine/*", "mlx_context/*"]
