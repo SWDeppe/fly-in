@@ -1,0 +1,32 @@
+start: fields
+
+fields: nb_drones_field start_field hub_field* end_field connection_field*
+
+
+nb_drones_field: "nb_drones: " INT
+
+start_field: "start_hub: " NAME place metadata?
+
+hub_field: "hub: " NAME place metadata?
+
+end_field: "end_hub: " NAME place metadata?
+
+connection_field: "connection: " NAME "-" NAME metadata?
+
+place: INT INT
+
+metadata: "[" single_param* "]"
+
+single_param: NAME "=" value
+
+NAME: /[A-Za-z_][A-Za-z0-9_]*/
+
+value: INT | NAME
+
+%ignore " "
+%ignore "\n"
+%ignore COMMENT
+
+COMMENT: "#" /[^\n]/*
+%import common.WS
+%import common.INT
