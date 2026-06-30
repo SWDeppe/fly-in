@@ -1,0 +1,8 @@
+# Runtime dependencies for fly-in
+-r requirements/prod.txt
+
+# Notes:
+# - `mlx` and `visual_engine` are local packages in the repository.
+# - Install with `pip install -r requirements.txt` after creating/activating the virtualenv.
+
+#dev
