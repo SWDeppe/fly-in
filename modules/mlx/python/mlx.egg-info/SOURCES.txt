@@ -6,6 +6,8 @@ mlx.egg-info/top_level.txt
 src/mlx/__init__.py
 src/mlx/libmlx.so
 src/mlx/mlx.py
+src/mlx/__pycache__/__init__.cpython-310.pyc
+src/mlx/__pycache__/mlx.cpython-310.pyc
 src/mlx/docs/mlx.3
 src/mlx/docs/mlx.h
 src/mlx/docs/mlx_extra.3

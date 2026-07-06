@@ -4,6 +4,6 @@
   "python.analysis.extraPaths": [
     "${workspaceFolder}/modules/mlx/python/src",
     "${workspaceFolder}/modules/visual_engine",
-    "${workspaceFolder}/modules/graph_engine"
+    "${workspaceFolder}/modules/graph_engine",
   ]
 }

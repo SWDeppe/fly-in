@@ -27,6 +27,19 @@ class VTexturesTests(unittest.TestCase):
             self.assertEqual(Textures.get_entry(image_id)["path"], image_path)
             self.assertEqual(Textures.get_entry(font_id)["path"], font_path)
 
+    def test_preload_font_accepts_font_directories(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            font_dir = os.path.join(tmpdir, "fonts")
+            os.makedirs(font_dir, exist_ok=True)
+            font_path = os.path.join(font_dir, "sample.ttf")
+            with open(font_path, "wb") as fh:
+                fh.write(b"fake-font")
+
+            font_id = Textures.preload_font(font_dir, name="sample_font")
+
+            self.assertEqual(Textures.get_entry(font_id)["type"], "font")
+            self.assertEqual(Textures.get_entry(font_id)["path"], font_path)
+
 
 if __name__ == "__main__":
     unittest.main()

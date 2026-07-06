@@ -43,6 +43,15 @@ all:
 dev: all
 	$(PYTHON_INTERPRETER) -m pip install -r requirements/dev.txt
 
+build/%: src/orcestrator/main.c
+	cc $^ -I/usr/include/python3.10 \
+	-I/usr/include/python3.10 \
+	-L/usr/lib/python3.10/config-3.10-x86_64-linux-gnu \
+	-L/usr/lib/x86_64-linux-gnu \
+	-lpython3.10 -lcrypt -ldl -lm -lpthread \
+	-o $@
+
+build: build/fly_in
 
 ###    ENVIRONNEMENT MANAGMENT    ###
 init: ## sets up environment and installs requirements

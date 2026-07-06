@@ -57,10 +57,22 @@ class Textures:
         if not os.path.exists(path):
             raise VEngineError(f"Font file not found: {path}")
 
+        font_path = path
+        if os.path.isdir(path):
+            font_files = [
+                os.path.join(path, f)
+                for f in os.listdir(path)
+                if os.path.isfile(os.path.join(path, f))
+                and os.path.splitext(f)[1].lower() in {".ttf", ".otf", ".ttc"}
+            ]
+            if not font_files:
+                raise VEngineError(f"No font file found in directory: {path}")
+            font_path = font_files[0]
+
         font = None
         loaded = False
         try:
-            font = ImageFont.truetype(path, size)
+            font = ImageFont.truetype(font_path, size)
             loaded = True
         except (OSError, AttributeError):
             font = None
@@ -69,8 +81,8 @@ class Textures:
         cls._entries[entry_id] = {
             "id": entry_id,
             "type": "font",
-            "name": name or os.path.basename(path),
-            "path": path,
+            "name": name or os.path.basename(font_path),
+            "path": font_path,
             "font": font,
             "size": size,
             "loaded": loaded,

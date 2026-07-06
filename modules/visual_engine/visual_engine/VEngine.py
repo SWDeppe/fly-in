@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable
 
 from mlx import Mlx
-from .errors.VErrors import VEngineError
+from .errors.VErrors import VEngineError, StopCall
 
 from .assets.VTextures import Textures
 from .buffer.VCanvas import Canvas
@@ -63,7 +63,7 @@ class VEngine:
             wsiz=wsiz,
             framebuffers=framebuffers,
             events=[],
-        )        
+        )
 
     @classmethod
     def load_texture(
@@ -85,7 +85,15 @@ class VEngine:
         if cls.context is None:
             raise VEngineError("VEngine context is not loaded")
         framebuffer = cls.context.framebuffers[framebuffer_name]
+
+        if cls.context.window is not None:
+            cls.context.mlx_inst.mlx_clear_window(
+                cls.context.mlx_ptr,
+                cls.context.window,
+            )
+
         for canvas in framebuffer.canvases.values():
+            canvas.sync_to_mlx()
             if canvas.mlx_image is not None:
                 cls.context.mlx_inst.mlx_put_image_to_window(
                     cls.context.mlx_ptr,
@@ -94,6 +102,11 @@ class VEngine:
                     0,
                     0,
                 )
+
+        if cls.context.window is not None:
+            sync_func = getattr(cls.context.mlx_inst, "mlx_do_sync", None)
+            if callable(sync_func):
+                sync_func(cls.context.mlx_ptr)
 
     @classmethod
     def add_event(cls, func: Callable[[], int | None]) -> None:
@@ -153,15 +166,14 @@ class VEngine:
                 except Exception as e:
                     # Register the error but do not propagate into the
                     # ctypes callback layer (which would spam output).
-                    VEngineError(f"Callback error: {e}")
-                    return 0
+                    raise VEngineError(f"Callback error: {e}")
 
-            cls.context.mlx_inst.mlx_loop_hook(
-                cls.context.mlx_ptr, lambda p: _safe_hook(p), None
-            )
-            cls.context.mlx_inst.mlx_key_hook(
-                cls.context.window, lambda p: _safe_hook(p), None
-            )
+            # cls.context.mlx_inst.mlx_loop_hook( 
+            #     cls.context.mlx_ptr, lambda p: _safe_hook(p), None
+            # )
+            # cls.context.mlx_inst.mlx_key_hook(
+            #     cls.context.window, lambda p: _safe_hook(p), None
+            # )
             cls.context.mlx_inst.mlx_hook(
                 cls.context.window,
                 33,
@@ -176,7 +188,6 @@ class VEngine:
             print("loop launched")
         except Exception:
             # fallback: run a few iterations synchronously
-            print("Somthing went wrong")
             for _ in range(10):
                 _run_once()
 
@@ -187,12 +198,22 @@ class VEngine:
         canvas_name: str,
         texture_id: int,
         pos: Vec2 = (0, 0),
+        text="",
+        font_size=100,
+        color=(255, 255, 255),
     ) -> None:
         if cls.context is None:
             raise VEngineError("VEngine context is not loaded")
         framebuffer = cls.context.framebuffers[framebuffer_name]
         canvas = framebuffer.get_canvas(canvas_name)
-        canvas.put_texture(texture_id, pos=pos)
+        if Textures.get_entry(texture_id)["type"] == "font":
+            canvas.put_font(texture_id,
+                            text,
+                            size=font_size,
+                            color=color,
+                            pos=pos)
+        else:
+            canvas.put_texture(texture_id, pos=pos)
 
     @dataclass
     class Context:
