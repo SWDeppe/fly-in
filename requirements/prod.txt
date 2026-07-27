@@ -1,4 +1,0 @@
-lark-parser==0.12.0
-Pillow>=10.0.0
--e modules/mlx/python
--e modules/visual_engine

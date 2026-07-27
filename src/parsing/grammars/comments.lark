@@ -1,5 +1,0 @@
-%ignore " "
-%ignore COMMENT
-
-COMMENT: "#" /[^\n]/*
-%import common.WS
