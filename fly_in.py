@@ -123,14 +123,8 @@ class Graph:
                 dx, dy = disp[node]
                 dist = math.sqrt(dx * dx + dy * dy) or 0.001
                 capped = min(dist, temperature)
-                pos[node][0] = min(
-                    1.0,
-                    max(0.0, pos[node][0] + (dx / dist) * capped)
-                )
-                pos[node][1] = min(
-                        1.0,
-                        max(0.0, pos[node][1] + (dy / dist) * capped)
-                )
+                pos[node][0] = min(1.0, max(0.0, pos[node][0] + (dx / dist) * capped))
+                pos[node][1] = min(1.0, max(0.0, pos[node][1] + (dy / dist) * capped))
 
             # FIX: recompute from the original temperature each iteration
             # (linear cooling), instead of compounding a shrink factor every
@@ -181,27 +175,114 @@ class Graph:
         return "\n".join("".join(row) for row in grid)
 
 
+class ParsingError(Exception):
+    def __init__(self, file_name: str, field: str):
+        print(f"Somthing went wrong while parsing {file_name} on the {field} field")
+
+
 def parse(file_name: str):
+    # def parse_connection():
+
+    order = ["nb_drones", "start_hub", "hub", "end_hub", "connection"]
+    i = 0
+    data = {"hub": [], "connection": []}
     
     with open(file_name) as f:
-        for line in f.readlines():
-            
+        # search nb_drones
+        for line in f:
+            while line.startswith(" "):
+                line = line[1:]
+            if line.startswith(("#", "\n")):
+                continue
+
+            line = line[:-1]
+            def parse_line(line: str, i: int):
+                def parse_hub():
+                    col = line.rfind("[")
+                    parts = line[len(order[i]) + 2 : col -1].split(" ")
+                    print(parts)
+                    if len(parts) != 3:
+                        raise ParsingError(file_name, order[i])
+                    name, id = parts[0], (int(parts[1]), int(parts[2]))
+
+                    params = {
+                        tuple(param.split("="))
+                        for param in line[col:-1].split(", ")
+                        if len(param.split("=")) == 2
+                    }
+                    
+                    return {
+                        "name": name,
+                        "id": id,
+                        "params": params
+                    }
+                
+                def parse_connection():
+                    res = line[len(order[i]) + 2 :].split("-")
+                    if len(res) != 2:
+                        raise ParsingError(file_name, order[i])
+                    return res
+                    
+                    
+                if i == 0:
+                    return int(line[len(order[0]) + 1:])
+                if i >= 1 and i <= 3:
+                    return parse_hub()
+                if i == 4:
+                    return parse_connection()
+
+            # no error if no hub
+            if order[i] == "hub" and line.startswith("hub"):
+                data[order[i]].append(parse_line(line, i))
+                continue
+            elif order[i] == "hub":
+                i += 1
+            print(line)
+            if not line.startswith(order[i]):
+                raise ParsingError(file_name, order[i])
+            else:
+                if i == 4:
+                    data["connection"].append(parse_line(line, i))
+                else:
+                    data[order[i]] = parse_line(line, i)
+                i += i + 1 < len(order)
+            print(i)
+    return data
 
 
 def main():
-    parse("./text")
-    nodes = [
-        Node((2, 2), []),
-        Node((5, 2), []),
-        Node((3, 2), []),
-        Node((4, 2), []),
-        Node((5, 6), []),
-    ]
+    # try:
+    res = parse("./maps/easy/01_linear_path.txt")
+    print(res)
+    # except Exception as e:
+    #     print(e)
+    nodes = {
+        res["start_hub"]["name"]: Node(res["start_hub"]["id"], []),
+        res["end_hub"]["name"]: Node(res["end_hub"]["id"], [])
+    }
+    for hub in res['hub']:
+        nodes[hub["name"]] = Node(hub["id"], [])
 
-    graph = Graph(nodes[0], nodes[4])
-    graph.connect_childs(nodes[0], [nodes[3], nodes[1], nodes[2]])
-    graph.connect_childs(nodes[4], [nodes[2], nodes[0], nodes[3], nodes[1]])
-    graph.connect_childs(nodes[2], [nodes[1], nodes[3]])
+    for connection in res["connection"]:
+        nodes[connection[0]].connect(nodes[connection[1]])
+
+    graph = Graph(nodes[res["start_hub"]["name"]],
+                  nodes[res["end_hub"]["name"]])
+
+    for node in nodes.values():
+        graph.connect_childs(node, node._neigbours)
+
+    # nodes = [
+    #     Node((2, 2), []),
+    #     Node((5, 2), []),
+    #     Node((3, 2), []),
+    #     Node((4, 2), []),
+    #     Node((5, 6), []),
+    # ]
+
+    # graph.connect_childs(nodes[0], [nodes[3], nodes[1], nodes[2]])
+    # graph.connect_childs(nodes[4], [nodes[2], nodes[0], nodes[3], nodes[1]])
+    # graph.connect_childs(nodes[2], [nodes[1], nodes[3]])
 
     print(graph)
 
