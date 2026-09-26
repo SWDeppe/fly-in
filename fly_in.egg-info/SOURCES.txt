@@ -1,0 +1,8 @@
+README.md
+setup.py
+fly_in.egg-info/PKG-INFO
+fly_in.egg-info/SOURCES.txt
+fly_in.egg-info/dependency_links.txt
+fly_in.egg-info/entry_points.txt
+fly_in.egg-info/requires.txt
+fly_in.egg-info/top_level.txt
