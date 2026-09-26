@@ -27,12 +27,12 @@ class FlyInError(Exception):
 def main() -> None:
     args = build_parser().parse_args()
 
-    map_folder = Path(__file__).parents[1] / "maps"
+    map_folder = Path(__file__).parents[1] / "maps/"
     if not hasattr(args, "map_file"):
         raise FlyInError("Wrong usage map missing: python3 fly_in 'map file'")
 
     if not os.path.exists(str(map_folder / args.map_file)):
-        raise FlyInError("File does not exist !", 0)
+        raise FlyInError("File does not exist !")
 
     map = Parser.parse(str(map_folder / args.map_file))
     print(map)

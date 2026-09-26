@@ -3,7 +3,7 @@
 - [ X ] Prepare the project structure
 - [ X ] Get the arguments and verify the file existe
 - [ X ] Parse the file properly with error management
-- [ ] Make a proper data stucture with the parsing tokens
+- [ X ] Make a proper data stucture with the parsing tokens
 - [ ] Make parsing tests
 - [ ] Make data structure for CBS 
 - [ ] Make the low level CBS algo
