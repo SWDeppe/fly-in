@@ -1,7 +1,0 @@
-mlx @ file:///home/swann/Documents/school/42/proper_flyin/libs/mlx_CLXV-2.2/mlx_CLXV/python
-
-[test]
-pytest
-flake8
-mypy
-mkdocs

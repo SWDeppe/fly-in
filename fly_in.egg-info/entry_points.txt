@@ -1,2 +1,0 @@
-[console_scripts]
-fly-in = fly_in.__main__:main
