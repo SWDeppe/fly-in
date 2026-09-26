@@ -1,0 +1,4 @@
+site_name: fly_in
+theme: readthedocs
+nav:
+  - Accueil: index.md
