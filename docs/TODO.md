@@ -4,7 +4,7 @@
 - [ X ] Get the arguments and verify the file existe
 - [ X ] Parse the file properly with error management
 - [ X ] Make a proper data stucture with the parsing tokens
-- [ ] Make parsing tests
+- [ X ] Make parsing tests
 - [ ] Make data structure for CBS 
 - [ ] Make the low level CBS algo
 - [ ] Make the top level CBS algo
