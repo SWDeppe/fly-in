@@ -4,6 +4,9 @@ import argparse
 from pathlib import Path
 import os
 
+from parser import Parser
+
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -30,3 +33,6 @@ def main() -> None:
 
     if not os.path.exists(str(map_folder / args.map_file)):
         raise FlyInError("File does not exist !", 0)
+
+    map = Parser.parse(str(map_folder / args.map_file))
+    print(map)
