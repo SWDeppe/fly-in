@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Map desciption - fly_in</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Map desciption";
+        var mkdocs_page_input_path = "maps.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> fly_in
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TODO/">Todo list</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Map desciption</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#map-categories">Map Categories</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#easy-maps">🟢 Easy Maps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#medium-maps">🟡 Medium Maps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hard-maps">🔴 Hard Maps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#challenger-maps">⚫ Challenger Maps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#challenge-types-covered">Challenge Types Covered</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dead-end-traps">🎯 Dead End Traps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#circular-loops">🔄 Circular Loops</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capacity-constraints">⚡ Capacity Constraints</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zone-type-optimization">🚀 Zone Type Optimization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#complex-topology">🧩 Complex Topology</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing-strategy">Testing Strategy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expected-behavior">Expected Behavior</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#performance-benchmarks">Performance Benchmarks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visual-representation">Visual Representation</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">fly_in</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Map desciption</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="drone-simulation-challenge-maps">Drone Simulation Challenge Maps</h1>
+<p>This collection contains carefully crafted maps designed to test different aspects of drone pathfinding algorithms, from basic navigation to complex optimization challenges.</p>
+<h2 id="map-categories">Map Categories</h2>
+<h3 id="easy-maps">🟢 Easy Maps</h3>
+<p><strong>Target</strong>: Beginners, basic algorithm testing
+- <code>01_linear_path.txt</code> - Simple linear progression (2 drones)
+- <code>02_simple_fork.txt</code> - Basic path splitting (3 drones)<br />
+- <code>03_basic_capacity.txt</code> - Introduction to capacity constraints (4 drones)</p>
+<h3 id="medium-maps">🟡 Medium Maps</h3>
+<p><strong>Target</strong>: Intermediate challenges, algorithm optimization
+- <code>01_dead_end_trap.txt</code> - Dead ends that can trap naive algorithms (5 drones)
+- <code>02_circular_loop.txt</code> - Circular paths with restricted zones (6 drones)
+- <code>03_priority_puzzle.txt</code> - Optimal path selection with priority zones (4 drones)</p>
+<h3 id="hard-maps">🔴 Hard Maps</h3>
+<p><strong>Target</strong>: Advanced algorithms, stress testing
+- <code>01_maze_nightmare.txt</code> - Complex maze with multiple traps and loops (8 drones)
+- <code>02_capacity_hell.txt</code> - Extreme capacity constraints requiring careful timing (12 drones)
+- <code>03_ultimate_challenge.txt</code> - <strong>THE ULTIMATE TEST</strong> - All challenges combined (15 drones)</p>
+<h3 id="challenger-maps">⚫ Challenger Maps</h3>
+<p><strong>Target</strong>: Research and algorithmic limits exploration
+- <code>01_the_impossible_dream.txt</code> - <strong>THE IMPOSSIBLE DREAM</strong> - Quasi-unsolvable challenge (25 drones)</p>
+<blockquote>
+<p>⚠️ <strong>WARNING</strong>: Challenger maps are designed to push algorithmic limits and may not be solvable by most implementations. They are intended for research, stress testing, and algorithmic exploration rather than validation. The goal is to challenge the boundaries of what's possible, not to pass evaluation criteria.</p>
+<p>🏆 <strong>CHALLENGE RECORD</strong>: The reference implementation solves "The Impossible Dream" in <strong>41 turns</strong>. Can you beat this record? This serves as a benchmark for algorithmic optimization and provides a concrete goal for advanced implementations.</p>
+</blockquote>
+<h2 id="challenge-types-covered">Challenge Types Covered</h2>
+<h3 id="dead-end-traps">🎯 <strong>Dead End Traps</strong></h3>
+<p>Maps contain paths that lead nowhere, testing if algorithms can backtrack or avoid getting stuck.</p>
+<h3 id="circular-loops">🔄 <strong>Circular Loops</strong></h3>
+<p>Cycles in the graph that can cause infinite loops in poorly designed algorithms.</p>
+<h3 id="capacity-constraints">⚡ <strong>Capacity Constraints</strong></h3>
+<ul>
+<li>Zone capacity limits (max_drones)</li>
+<li>Connection capacity limits (max_link_capacity)</li>
+<li>Timing-based bottlenecks</li>
+</ul>
+<h3 id="zone-type-optimization">🚀 <strong>Zone Type Optimization</strong></h3>
+<ul>
+<li><code>normal</code>: Standard 1-turn movement</li>
+<li><code>restricted</code>: 2-turn movement (slow but sometimes necessary)</li>
+<li><code>priority</code>: 1-turn movement but should be preferred</li>
+<li><code>blocked</code>: Completely inaccessible</li>
+</ul>
+<h3 id="complex-topology">🧩 <strong>Complex Topology</strong></h3>
+<ul>
+<li>Multiple valid paths with different costs</li>
+<li>Convergence points requiring coordination</li>
+<li>Multi-layer challenges</li>
+</ul>
+<h2 id="testing-strategy">Testing Strategy</h2>
+<ol>
+<li><strong>Start with Easy</strong>: Ensure basic functionality works</li>
+<li><strong>Progress to Medium</strong>: Test algorithm robustness</li>
+<li><strong>Challenge with Hard</strong>: Stress test optimization and edge cases</li>
+<li><strong>Ultimate Test</strong>: <code>03_ultimate_challenge.txt</code> combines all difficulties</li>
+</ol>
+<h2 id="expected-behavior">Expected Behavior</h2>
+<p>All maps are designed to be solvable with a well-implemented algorithm. However:</p>
+<ul>
+<li><strong>Easy maps</strong>: Should solve quickly with any reasonable approach</li>
+<li><strong>Medium maps</strong>: May require backtracking, path optimization, or capacity management</li>
+<li><strong>Hard maps</strong>: Demand sophisticated algorithms with proper conflict resolution and optimization</li>
+</ul>
+<h2 id="performance-benchmarks">Performance Benchmarks</h2>
+<ul>
+<li><strong>Easy</strong>: &lt; 10 simulation turns typically</li>
+<li><strong>Medium</strong>: 10-30 simulation turns depending on optimization</li>
+<li><strong>Hard</strong>: 30+ simulation turns, focus on finding valid solutions</li>
+<li><strong>Challenger</strong>: <strong>Record to beat: 41 turns</strong> for "The Impossible Dream" - designed for algorithmic research</li>
+</ul>
+<h2 id="visual-representation">Visual Representation</h2>
+<p>Maps use color coding for enhanced understanding (not implemented yet):
+- 🟢 <strong>Green</strong>: Start/End zones
+- 🔵 <strong>Blue</strong>: Normal paths
+- 🟡 <strong>Yellow</strong>: Junction/merge points
+- 🟠 <strong>Orange</strong>: Bottlenecks/gates
+- 🔴 <strong>Red</strong>: Dead ends/traps
+- 🟣 <strong>Purple</strong>: Restricted zones
+- 🔵 <strong>Cyan</strong>: Priority zones</p>
+<p>Use the <code>--visual</code> flag to see colored terminal output during simulation!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../TODO/" class="btn btn-neutral float-left" title="Todo list"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../TODO/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

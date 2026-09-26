@@ -1,4 +1,7 @@
 site_name: fly_in
-theme: readthedocs
+theme:
+  name: readthedocs
 nav:
-  - Accueil: index.md
+  - Home: index.md
+  - Todo list: TODO.md
+  - Map desciption: maps.md
