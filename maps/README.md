@@ -86,5 +86,3 @@ Maps use color coding for enhanced understanding (not implemented yet):
 - 🔴 **Red**: Dead ends/traps
 - 🟣 **Purple**: Restricted zones
 - 🔵 **Cyan**: Priority zones
-
-Use the `--visual` flag to see colored terminal output during simulation!

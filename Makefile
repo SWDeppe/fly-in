@@ -27,8 +27,8 @@ graphics-manual: mlx-build
 	. .venv/bin/activate && python tests/manual_graphics.py
 
 lint:
-	flake8 .
-	mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
+	flake8 fly_in setup.py
+	mypy fly_in --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
 
 docs:
 	mkdocs build

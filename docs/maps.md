@@ -6,25 +6,25 @@ This collection contains carefully crafted maps designed to test different aspec
 
 ### 🟢 Easy Maps
 **Target**: Beginners, basic algorithm testing
-- `01_linear_path.txt` - Simple linear progression (2 drones)
-- `02_simple_fork.txt` - Basic path splitting (3 drones)  
-- `03_basic_capacity.txt` - Introduction to capacity constraints (4 drones)
+- [`01_linear_path.txt`](maps/easy/01_linear_path.txt) - Simple linear progression (2 drones)
+- [`02_simple_fork.txt`](maps/easy/02_simple_fork.txt) - Basic path splitting (3 drones)  
+- [`03_basic_capacity.txt`](maps/easy/03_basic_capacity.txt) - Introduction to capacity constraints (4 drones)
 
 ### 🟡 Medium Maps
 **Target**: Intermediate challenges, algorithm optimization
-- `01_dead_end_trap.txt` - Dead ends that can trap naive algorithms (5 drones)
-- `02_circular_loop.txt` - Circular paths with restricted zones (6 drones)
-- `03_priority_puzzle.txt` - Optimal path selection with priority zones (4 drones)
+- [`01_dead_end_trap.txt`](maps/medium/01_dead_end_trap.txt) - Dead ends that can trap naive algorithms (5 drones)
+- [`02_circular_loop.txt`](maps/medium/02_circular_loop.txt) - Circular paths with restricted zones (6 drones)
+- [`03_priority_puzzle.txt`](maps/medium/03_priority_puzzle.txt) - Optimal path selection with priority zones (4 drones)
 
 ### 🔴 Hard Maps
 **Target**: Advanced algorithms, stress testing
-- `01_maze_nightmare.txt` - Complex maze with multiple traps and loops (8 drones)
-- `02_capacity_hell.txt` - Extreme capacity constraints requiring careful timing (12 drones)
-- `03_ultimate_challenge.txt` - **THE ULTIMATE TEST** - All challenges combined (15 drones)
+- [`01_maze_nightmare.txt`](maps/hard/01_maze_nightmare.txt) - Complex maze with multiple traps and loops (8 drones)
+- [`02_capacity_hell.txt`](maps/hard/02_capacity_hell.txt) - Extreme capacity constraints requiring careful timing (12 drones)
+- [`03_ultimate_challenge.txt`](maps/hard/03_ultimate_challenge.txt) - **THE ULTIMATE TEST** - All challenges combined (15 drones)
 
 ### ⚫ Challenger Maps
 **Target**: Research and algorithmic limits exploration
-- `01_the_impossible_dream.txt` - **THE IMPOSSIBLE DREAM** - Quasi-unsolvable challenge (25 drones)
+- [`01_the_impossible_dream.txt`](maps/challenger/01_the_impossible_dream.txt) - **THE IMPOSSIBLE DREAM** - Quasi-unsolvable challenge (25 drones)
 
 > ⚠️ **WARNING**: Challenger maps are designed to push algorithmic limits and may not be solvable by most implementations. They are intended for research, stress testing, and algorithmic exploration rather than validation. The goal is to challenge the boundaries of what's possible, not to pass evaluation criteria.
 
@@ -86,5 +86,3 @@ Maps use color coding for enhanced understanding (not implemented yet):
 - 🔴 **Red**: Dead ends/traps
 - 🟣 **Purple**: Restricted zones
 - 🔵 **Cyan**: Priority zones
-
-Use the `--visual` flag to see colored terminal output during simulation!

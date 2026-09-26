@@ -3,5 +3,6 @@ theme:
   name: readthedocs
 nav:
   - Home: index.md
+  - How to use: usage.md
   - Todo list: TODO.md
   - Map desciption: maps.md
