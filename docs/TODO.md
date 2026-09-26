@@ -1,7 +1,7 @@
 # TODO list
 
 - [ X ] Prepare the project structure
-- [ ] Get the arguments and verify the file existe
+- [ X ] Get the arguments and verify the file existe
 - [ ] Parse the file properly with error management
 - [ ] Make a proper data stucture with the parsing tokens
 - [ ] Make parsing tests
