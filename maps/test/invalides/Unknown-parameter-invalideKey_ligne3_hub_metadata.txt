@@ -1,0 +1,6 @@
+nb_drones: 2
+
+start_hub: start 1 1 [max_drones=1, invalideKey=value]
+end_hub: end 2 2
+
+connection: start-end

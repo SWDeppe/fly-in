@@ -1,0 +1,8 @@
+ # A comment must be ignored.
+nb_drones: 3
+start_hub: A
+
+hub: A 0 0 [type=normal, capacity=2]
+hub: B 10 0 [type=restricted]
+
+connection: A B

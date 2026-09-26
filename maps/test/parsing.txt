@@ -1,0 +1,11 @@
+nb_drones: 5
+
+start_hub: start 0 0 [max_drones=5, color=blue, zone=normal]
+hub: impossible 1 1 [max_drones=2, zone=blocked]
+hub: possible 1 -1 [zone=restricted]
+end_hub: end 2 0 [max_drones=5, zone=priority]
+
+connection: start-impossible
+connection: start-possible [max_link_capacity=5]
+connection: impossible-end
+connection: possible-end
