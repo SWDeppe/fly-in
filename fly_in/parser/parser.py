@@ -79,4 +79,4 @@ class Parser:
     def parse(map_file: str) -> None:
         """Parse a Fly-in map file into a validated MapData object."""
         tokens = Parser.tokenizer(map_file)
-        return Parser.validate(tokens)
+        raise NotImplementedError
