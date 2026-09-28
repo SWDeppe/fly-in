@@ -1,7 +1,8 @@
+import os
+from typing import Any, cast
+
 from fly_in.models import Connection, MapData, Zone
 from fly_in.parser.exceptions import ParseError
-from typing import Any, cast
-import os
 
 
 class Parser:
@@ -39,7 +40,7 @@ class Parser:
 
         return (connection1, connection2)
 
-    hubMetadata: dict[str, Any] = {
+    hubMetadata: dict[str, Any] = {  # noqa: RUF012
         "type": zone,
         "zone": zone,
         "capacity": drone_num,
@@ -47,7 +48,7 @@ class Parser:
         "color": str,
     }
 
-    sectionsTypes: dict[str, list[Any]] = {
+    sectionsTypes: dict[str, list[Any]] = {  # noqa: RUF012
         "nb_drones": [drone_num],
         "start_hub": [str, int, int, hubMetadata],
         "end_hub": [str, int, int, hubMetadata],
@@ -62,7 +63,7 @@ class Parser:
     }
 
     @staticmethod
-    def tokenizer(map_file: str) -> list[Parser.Tsection]:
+    def tokenizer(map_file: str) -> list["Parser.Tsection"]:
         """Split a map file into sections of keyed values and parameters."""
         tokens: list[Parser.Tsection] = []
         if not os.path.exists(map_file):
@@ -118,7 +119,7 @@ class Parser:
         return tokens
 
     @staticmethod
-    def validate(tokens: list[Parser.Tsection]) -> MapData:
+    def validate(tokens: list["Parser.Tsection"]) -> MapData:
         """Validate a tokenized map file and return a MapData object."""
         drone_count: int | None = None
         start: str | None = None

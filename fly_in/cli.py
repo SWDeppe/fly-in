@@ -1,13 +1,11 @@
 """Command-line and graphical entry points for Fly-in."""
 
 import argparse
-from pathlib import Path
-from fly_in.cbs import CBSSolver
-from concurrent.futures import ThreadPoolExecutor
 import os
+from pathlib import Path
 
+from fly_in.game_logic import GameLogic
 from fly_in.parser import Parser
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,6 +35,5 @@ def main() -> None:
         raise FlyInError("File does not exist !")
 
     map = Parser.parse(str(map_folder / args.map_file))
-    with ThreadPoolExecutor(max_workers=3) as executor:
-        paths = CBSSolver(map).solve(executor)
-    print(paths)
+    game = GameLogic(map,  windowSiz=(800, 600))
+    game.launch()
