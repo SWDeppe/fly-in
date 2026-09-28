@@ -2,8 +2,8 @@
 
 from dataclasses import dataclass, field
 
-from cbs.astar import TimedPath
-from cbs.conflicts import Conflict, Constraint
+from fly_in.cbs.astar import TimedPath
+from fly_in.cbs.conflicts import Conflict, Constraint
 
 
 @dataclass

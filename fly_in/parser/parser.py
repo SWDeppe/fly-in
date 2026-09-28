@@ -1,5 +1,5 @@
-from models import Connection, MapData, Zone
-from parser.exceptions import ParseError
+from fly_in.models import Connection, MapData, Zone
+from fly_in.parser.exceptions import ParseError
 from typing import Any, cast
 import os
 

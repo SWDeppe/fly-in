@@ -3,11 +3,11 @@
 from concurrent.futures import Executor
 import heapq
 
-from cbs.astar import ConstrainedAStar, TimedPath
-from cbs.conflicts import Conflict, ConflictKind, Constraint
-from cbs.node import CBSNode
-from graph import StaticGraph
-from models import MapData
+from fly_in.cbs.astar import ConstrainedAStar, TimedPath
+from fly_in.cbs.conflicts import Conflict, ConflictKind, Constraint
+from fly_in.cbs.node import CBSNode
+from fly_in.graph import StaticGraph
+from fly_in.models import MapData
 
 
 class CBSSolver:

@@ -8,7 +8,7 @@
 - [ X ] Make data structure for CBS
 - [ X ] Make the low level CBS algo
 - [ X ] Make the top level CBS algo
-- [ ] Make CBS testing
+- [ X ] Make CBS testing
 - [ ] Make the map graphics
 - [ ] Make the drone simulation animation
 - [ ] Test Simulation and enjoy the work

@@ -2,11 +2,11 @@
 
 import argparse
 from pathlib import Path
-from cbs import CBSSolver
+from fly_in.cbs import CBSSolver
 from concurrent.futures import ThreadPoolExecutor
 import os
 
-from parser import Parser
+from fly_in.parser import Parser
 
 
 ROOT = Path(__file__).resolve().parents[1]

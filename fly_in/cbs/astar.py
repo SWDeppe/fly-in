@@ -2,8 +2,8 @@
 
 from dataclasses import dataclass
 
-from cbs.conflicts import Constraint
-from graph import StaticGraph
+from fly_in.cbs.conflicts import Constraint
+from fly_in.graph import StaticGraph
 
 
 @dataclass(frozen=True)

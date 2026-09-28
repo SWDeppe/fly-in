@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from models import MapData
+from fly_in.models import MapData
 
 
 @dataclass(frozen=True)
