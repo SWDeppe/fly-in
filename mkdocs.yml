@@ -4,6 +4,7 @@ theme:
 nav:
   - Home: index.md
   - How to use: usage.md
-  - Todo list: TODO.md
   - Map desciption: maps.md
+  - Algo desctiption: maps.md
+  - Todo list: TODO.md
   - Tests: test.md
