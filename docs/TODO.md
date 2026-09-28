@@ -6,8 +6,8 @@
 - [ X ] Make a proper data stucture with the parsing tokens
 - [ X ] Make parsing tests
 - [ X ] Make data structure for CBS
-- [ ] Make the low level CBS algo
-- [ ] Make the top level CBS algo
+- [ X ] Make the low level CBS algo
+- [ X ] Make the top level CBS algo
 - [ ] Make CBS testing
 - [ ] Make the map graphics
 - [ ] Make the drone simulation animation

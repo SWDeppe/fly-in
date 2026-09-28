@@ -2,6 +2,8 @@
 
 import argparse
 from pathlib import Path
+from cbs import CBSSolver
+from concurrent.futures import ThreadPoolExecutor
 import os
 
 from parser import Parser
@@ -28,11 +30,13 @@ def main() -> None:
     args = build_parser().parse_args()
 
     map_folder = Path(__file__).parents[1] / "maps/"
-    if not hasattr(args, "map_file"):
+    if not hasattr(args, "map_file") or args.map_file is None:
         raise FlyInError("Wrong usage map missing: python3 fly_in 'map file'")
 
-    if not os.path.exists(str(map_folder / args.map_file)):
+    if not os.path.exists(str(Path(map_folder / args.map_file))):
         raise FlyInError("File does not exist !")
 
     map = Parser.parse(str(map_folder / args.map_file))
-    print(map)
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        paths = CBSSolver(map).solve(executor)
+    print(paths)

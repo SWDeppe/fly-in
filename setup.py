@@ -22,11 +22,13 @@ def read(*paths: str, **kwargs: str) -> str:
 
 
 def read_requirements(path: str) -> list[str]:
-    dependencies = []
+    dependencies: list[str] = []
     for line in read(path).split("\n"):
         line = line.strip()
         if line.startswith("./"):
             line = os.path.abspath(line)
+            name: str = "" \
+            ""
             with open(line + "/pyproject.toml", "r", encoding="utf8") as f:
                 content = f.read().strip()
                 # print(content)
