@@ -27,8 +27,7 @@ def read_requirements(path: str) -> list[str]:
         line = line.strip()
         if line.startswith("./"):
             line = os.path.abspath(line)
-            name: str = "" \
-            ""
+            name: str = ""
             with open(line + "/pyproject.toml", "r", encoding="utf8") as f:
                 content = f.read().strip()
                 # print(content)

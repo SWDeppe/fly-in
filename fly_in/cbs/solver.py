@@ -129,13 +129,13 @@ class CBSSolver:
             usages = sorted(usages, key=lambda usage: usage[2])
             if len(usages) <= capacity:
                 continue
-            for first in usages[:capacity]:
-                second = usages[capacity]
-                start = max(first[0], second[0])
-                end = min(first[1], second[1])
+            for fir in usages[:capacity]:
+                sec = usages[capacity]
+                start = max(fir[0], sec[0])
+                end = min(fir[1], sec[1])
                 if end > start and len(usages) > capacity:
                     conflicts.append(
-                        Conflict(first[2], second[2], ConflictKind.EDGE,
+                        Conflict(fir[2], sec[2], ConflictKind.EDGE,
                                  (source, target), start, end - start)
                     )
 
@@ -164,7 +164,7 @@ class CBSSolver:
         first_path = node.paths[conflict.first_drone]
         second_path = node.paths[conflict.second_drone]
         if first_path.steps == second_path.steps:
-            drone_ids = (max(drone_ids),)
+            drone_ids = (max(drone_ids), max(drone_ids))
 
         for drone_id in drone_ids:
             constraint = self.constraint_for(drone_id, conflict)
