@@ -1,5 +1,6 @@
 import sys
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 from threading import Lock
 
 from PIL import Image
@@ -9,6 +10,7 @@ from fly_in.cbs.solver import CBSSolver
 from fly_in.graph import MapData
 from fly_in.graphics import Canvas, GraphicsEngine
 from fly_in.models import Zone
+from fly_in.output import log_output
 
 
 class GraphicMap:
@@ -101,6 +103,7 @@ class GameLogic:
 
         with ThreadPoolExecutor(max_workers=4) as executor:
             self._solve_paths(executor)
+
             if hasattr(self, "graphic_map"):
                 base_position = (
                     self.map.zones[self.map.start].x * 2,
@@ -214,6 +217,10 @@ class GameLogic:
         drone before the window opens."""
         try:
             self.paths = CBSSolver(self.map).solve(executor)
+            log_output(
+                str(Path(__file__).resolve().parents[1] / "output.txt"),
+                [path for path in self.paths.values()]
+            )
             self.longest_path: int = max(
                 path.arrival_time for path in self.paths.values()
             )
@@ -775,7 +782,8 @@ class GameLogic:
         )
 
         new_start = (int(start + (w - h) * int(self.tile_siz / 2)),
-                     int((h + w - 2) * (self.tile_siz - self.under_offset) / 2))
+                     int((h + w - 2) *
+                         (self.tile_siz - self.under_offset) / 2))
         under_fill = 1000
         for i in range(under_fill):
             for y in range(1, h):
