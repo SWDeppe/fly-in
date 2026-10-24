@@ -5,6 +5,6 @@ nav:
   - Home: index.md
   - How to use: usage.md
   - Map desciption: maps.md
-  - Algo desctiption: maps.md
+  - Algo desctiption: algo.md
   - Todo list: TODO.md
   - Tests: test.md
